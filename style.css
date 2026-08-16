@@ -113,6 +113,31 @@ h1, h2, h3, .display {
 .btn-wpp:hover { background: var(--pink); transform: translateY(-2px); }
 .btn-wpp svg { width: 20px; height: 20px; flex-shrink: 0; }
 
+body.dark .btn-wpp {
+  background: var(--white);
+  color: var(--ink);
+  border: 2px solid rgba(255,255,255,0.12);
+}
+body.dark #wpp-top,
+body.dark #wpp-cta {
+  background: var(--ink);
+  color: var(--white);
+  border-color: rgba(255,255,255,0.12);
+}
+body.dark #wpp-top:hover,
+body.dark #wpp-cta:hover {
+  background: var(--pink);
+  color: #111111;
+}
+body.dark .cta-final .btn-wpp {
+  background: var(--white);
+  color: var(--ink);
+}
+body.dark .cta-final .btn-wpp:hover {
+  background: var(--white);
+  color: var(--ink);
+}
+
 /* ============================================================
    TOP BAR
    ============================================================ */
@@ -445,6 +470,15 @@ body.dark .hero-ticket {
 }
 .service-card.highlight p { color: #d8d8d8; }
 .service-card.highlight .icon { background: var(--pink); }
+
+body.dark .service-card.highlight {
+  background: #10151c;
+  color: #f3f7fb;
+  border-color: rgba(255,255,255,0.14);
+}
+body.dark .service-card.highlight p {
+  color: #d8d8d8;
+}
 
 /* ============================================================
    CERTIFICACIONES
