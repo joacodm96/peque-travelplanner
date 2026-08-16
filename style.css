@@ -28,15 +28,15 @@
 }
 
 body.dark {
-  --page-bg: #0d1117;
-  --page-alt: #131b23;
-  --card-bg: #181f29;
+  --page-bg: #0a0f16;
+  --page-alt: #111b27;
+  --card-bg: #1a2633;
   --text: #F3F7FB;
   --muted: #D4DDE8;
-  --ink: #F3F7FB;
-  --white: #FFFFFF;
-  --surface-dark: #10151c;
-  --surface-darker: #0b0d12;
+  --ink: #0d1117;
+  --white: #F3F7FB;
+  --surface-dark: #121b25;
+  --surface-darker: #090d13;
   --cloud: #8ea0b5;
   --cloud-soft: #1f2a35;
   --pink-soft: #2b1b31;
@@ -114,28 +114,31 @@ h1, h2, h3, .display {
 .btn-wpp svg { width: 20px; height: 20px; flex-shrink: 0; }
 
 body.dark .btn-wpp {
-  background: var(--white);
-  color: var(--ink);
+  background: var(--surface-dark);
+  color: var(--text);
   border: 2px solid rgba(255,255,255,0.12);
 }
 body.dark #wpp-top,
+body.dark #wpp-hero,
 body.dark #wpp-cta {
-  background: var(--ink);
-  color: var(--white);
+  background: var(--surface-dark);
+  color: var(--text);
   border-color: rgba(255,255,255,0.12);
 }
 body.dark #wpp-top:hover,
+body.dark #wpp-hero:hover,
 body.dark #wpp-cta:hover {
   background: var(--pink);
   color: #111111;
 }
 body.dark .cta-final .btn-wpp {
-  background: var(--white);
-  color: var(--ink);
+  background: var(--surface-dark);
+  color: var(--text);
+  border-color: rgba(255,255,255,0.12);
 }
 body.dark .cta-final .btn-wpp:hover {
-  background: var(--white);
-  color: var(--ink);
+  background: var(--pink);
+  color: #111111;
 }
 
 /* ============================================================
@@ -180,8 +183,41 @@ body.dark .topbar {
 }
 
 body.dark .theme-toggle {
-  background: var(--page-alt);
+  background: var(--surface-dark);
   color: var(--text);
+  border-color: rgba(255,255,255,0.12);
+}
+body.dark .hero-ticket,
+body.dark .service-card,
+body.dark .cert-card,
+body.dark .pass-card,
+body.dark .filter-btn,
+body.dark .topbar-brand span,
+body.dark .foot-brand span {
+  background: var(--card-bg);
+  color: var(--text);
+}
+body.dark .filter-btn {
+  border-color: rgba(255,255,255,0.14);
+}
+body.dark .pass-card .pass-country,
+body.dark .service-card h3,
+body.dark .cert-card .cert-label,
+body.dark .topbar-brand span,
+body.dark .foot-brand span,
+body.dark .hero-ticket .ticket-top,
+body.dark .hero-ticket .ticket-route .code,
+body.dark .hero-ticket .ticket-meta div,
+body.dark .hero-ticket .ticket-meta div span {
+  color: var(--text);
+}
+body.dark .ticket-meta div span {
+  color: var(--cloud);
+}
+body.dark .hero-ticket::before,
+body.dark .hero-ticket::after {
+  background: var(--surface-dark);
+  border-color: rgba(255,255,255,0.2);
 }
 .topbar .wrap {
   display: flex;
@@ -225,9 +261,9 @@ body.dark .theme-toggle {
 
 body.dark .hero {
   background:
-    radial-gradient(circle at 12% 18%, rgba(255, 189, 89, 0.18) 0%, transparent 42%),
-    radial-gradient(circle at 88% 12%, rgba(255, 102, 196, 0.18) 0%, transparent 46%),
-    var(--page-bg);
+    radial-gradient(circle at 12% 18%, rgba(255, 189, 89, 0.12) 0%, transparent 42%),
+    radial-gradient(circle at 88% 12%, rgba(255, 102, 196, 0.14) 0%, transparent 46%),
+    linear-gradient(180deg, #0d141d 0%, var(--page-bg) 100%);
 }
 
 .hero-route-line {
@@ -373,6 +409,10 @@ body.dark .hero-ticket {
   color: var(--white);
   padding: 26px 0;
 }
+body.dark .counter-strip {
+  background: var(--surface-dark);
+  color: var(--text);
+}
 .counter-strip .wrap {
   display: flex;
   align-items: baseline;
@@ -390,11 +430,18 @@ body.dark .hero-ticket {
 .counter-label {
   font-size: 16px;
   max-width: 32ch;
+  color: rgba(255, 255, 255, 0.9);
+}
+body.dark .counter-label {
+  color: var(--text);
+}
+body.dark .counter-updated {
+  color: rgba(243, 247, 251, 0.72);
 }
 .counter-updated {
   font-family: var(--font-mono);
   font-size: 11.5px;
-  color: var(--cloud);
+  color: rgba(255, 255, 255, 0.72);
   width: 100%;
   text-align: center;
   margin-top: 8px;
@@ -642,6 +689,12 @@ body.dark .filter-btn.active {
 /* ============================================================
    CTA FINAL
    ============================================================ */
+.cta-final {
+  background: var(--pink);
+  padding: 74px 0;
+  text-align: center;
+}
+
 .cta-final {
   background: var(--pink);
   padding: 74px 0;
