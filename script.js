@@ -9,6 +9,38 @@
 
   var d = window.SITE_DATA;
 
+  /* ---------- Tema oscuro ---------- */
+  var themeToggle = document.getElementById("theme-toggle");
+
+  function applyTheme(theme) {
+    var isDark = theme === "dark";
+    document.body.classList.toggle("dark", isDark);
+    if (themeToggle) {
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+      themeToggle.textContent = isDark ? "Modo claro" : "Modo oscuro";
+    }
+    try {
+      localStorage.setItem("peque-theme", theme);
+    } catch (err) {}
+  }
+
+  var savedTheme = null;
+  try {
+    savedTheme = localStorage.getItem("peque-theme");
+  } catch (err) {}
+
+  if (savedTheme === "dark" || (savedTheme !== "light" && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    applyTheme("dark");
+  } else {
+    applyTheme("light");
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      applyTheme(document.body.classList.contains("dark") ? "light" : "dark");
+    });
+  }
+
   /* ---------- Links de WhatsApp ---------- */
   var wppUrl = "https://wa.me/" + d.whatsapp + "?text=" + encodeURIComponent(d.mensajeWhatsapp);
   ["wpp-top", "wpp-hero", "wpp-cta", "wpp-foot", "wpp-float"].forEach(function (id) {

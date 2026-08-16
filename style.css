@@ -13,6 +13,11 @@
   --cloud-soft: #F1F1F1;
   --ink: #0C0C0C;
   --white: #FFFFFF;
+  --page-bg: #FFFFFF;
+  --page-alt: #F1F1F1;
+  --card-bg: #FFFFFF;
+  --text: #0C0C0C;
+  --muted: #3a3a3a;
 
   --font-display: 'Fredoka', system-ui, sans-serif;
   --font-body: 'Nunito Sans', system-ui, sans-serif;
@@ -20,6 +25,22 @@
 
   --radius: 22px;
   --container: 1120px;
+}
+
+body.dark {
+  --page-bg: #0d1117;
+  --page-alt: #131b23;
+  --card-bg: #181f29;
+  --text: #F3F7FB;
+  --muted: #D4DDE8;
+  --ink: #F3F7FB;
+  --white: #FFFFFF;
+  --surface-dark: #10151c;
+  --surface-darker: #0b0d12;
+  --cloud: #8ea0b5;
+  --cloud-soft: #1f2a35;
+  --pink-soft: #2b1b31;
+  --sun-soft: #302713;
 }
 
 * { box-sizing: border-box; }
@@ -34,10 +55,11 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: var(--font-body);
-  color: var(--ink);
-  background: var(--white);
+  color: var(--text);
+  background: var(--page-bg);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 img { max-width: 100%; display: block; }
@@ -102,6 +124,40 @@ h1, h2, h3, .display {
   backdrop-filter: blur(10px);
   border-bottom: 2px solid var(--ink);
 }
+
+body.dark .topbar {
+  background: rgba(13, 17, 23, 0.9);
+  border-bottom-color: var(--ink);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle {
+  appearance: none;
+  border: 2px solid var(--ink);
+  background: var(--page-bg);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+body.dark .theme-toggle {
+  background: var(--page-alt);
+  color: var(--text);
+}
 .topbar .wrap {
   display: flex;
   align-items: center;
@@ -138,8 +194,15 @@ h1, h2, h3, .display {
   background:
     radial-gradient(circle at 12% 18%, var(--sun-soft) 0%, transparent 42%),
     radial-gradient(circle at 88% 12%, var(--pink-soft) 0%, transparent 46%),
-    var(--white);
+    var(--page-bg);
   overflow: hidden;
+}
+
+body.dark .hero {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 189, 89, 0.18) 0%, transparent 42%),
+    radial-gradient(circle at 88% 12%, rgba(255, 102, 196, 0.18) 0%, transparent 46%),
+    var(--page-bg);
 }
 
 .hero-route-line {
@@ -174,7 +237,7 @@ h1, h2, h3, .display {
 .hero-sub {
   font-size: 18px;
   line-height: 1.55;
-  color: #3a3a3a;
+  color: var(--muted);
   max-width: 46ch;
   margin: 20px 0 30px;
 }
@@ -198,13 +261,17 @@ h1, h2, h3, .display {
 /* ---- Boarding pass hero card (signature element preview) ---- */
 .hero-ticket {
   position: relative;
-  background: var(--white);
+  background: var(--card-bg);
   border: 2.5px solid var(--ink);
   border-radius: 20px;
   padding: 26px 26px 22px;
   transform: rotate(2.5deg);
   box-shadow: 10px 12px 0 var(--sun);
   margin-left: 18px;
+}
+
+body.dark .hero-ticket {
+  box-shadow: 10px 12px 0 rgba(255, 189, 89, 0.7);
 }
 .hero-ticket::before,
 .hero-ticket::after {
@@ -312,7 +379,7 @@ h1, h2, h3, .display {
    SECTION HEADERS
    ============================================================ */
 .section { padding: 84px 0; }
-.section-alt { background: var(--cloud-soft); }
+.section-alt { background: var(--page-alt); }
 .section-head {
   max-width: 60ch;
   margin-bottom: 44px;
@@ -323,7 +390,7 @@ h1, h2, h3, .display {
 }
 .section-head p {
   font-size: 16.5px;
-  color: #444;
+  color: var(--muted);
   margin-top: 12px;
   line-height: 1.55;
 }
@@ -340,7 +407,7 @@ h1, h2, h3, .display {
 @media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } }
 
 .service-card {
-  background: var(--white);
+  background: var(--card-bg);
   border: 2px solid var(--ink);
   border-radius: var(--radius);
   padding: 26px 22px;
@@ -367,7 +434,7 @@ h1, h2, h3, .display {
 }
 .service-card p {
   font-size: 14.5px;
-  color: #444;
+  color: var(--muted);
   line-height: 1.5;
   margin: 0;
 }
@@ -394,7 +461,7 @@ h1, h2, h3, .display {
   border: 2px solid var(--ink);
   border-radius: var(--radius);
   overflow: hidden;
-  background: var(--white);
+  background: var(--card-bg);
 }
 .cert-card img {
   width: 100%;
@@ -463,9 +530,24 @@ h1, h2, h3, .display {
   padding: 9px 16px;
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease;
+  color: var(--ink);
 }
 .filter-btn:hover { background: var(--pink-soft); }
 .filter-btn.active { background: var(--ink); color: var(--white); }
+
+body.dark .filter-btn {
+  background: #202b36;
+  border-color: #8ea0b5;
+  color: #f3f7fb;
+}
+body.dark .filter-btn:hover {
+  background: #2d3a48;
+}
+body.dark .filter-btn.active {
+  background: var(--pink);
+  color: #171717;
+  border-color: var(--pink);
+}
 
 .destinos-grid {
   display: grid;
@@ -477,7 +559,7 @@ h1, h2, h3, .display {
   position: relative;
   border: 2px solid var(--ink);
   border-radius: 16px;
-  background: var(--white);
+  background: var(--card-bg);
   padding: 16px 18px 14px;
 }
 .pass-card::before,
@@ -519,7 +601,7 @@ h1, h2, h3, .display {
 .pass-dashed { border-top: 1.5px dashed var(--cloud); margin: 10px 0 8px; }
 .pass-cities {
   font-size: 12.5px;
-  color: #555;
+  color: var(--muted);
   line-height: 1.5;
 }
 
@@ -530,6 +612,10 @@ h1, h2, h3, .display {
   background: var(--pink);
   padding: 74px 0;
   text-align: center;
+}
+
+body.dark .cta-final {
+  background: linear-gradient(180deg, #d75cb8 0%, #ba5daa 100%);
 }
 .cta-final h2 {
   font-size: clamp(28px, 4vw, 42px);
@@ -554,6 +640,10 @@ footer {
   color: var(--white);
   padding: 40px 0 26px;
 }
+
+body.dark footer {
+  background: var(--surface-darker);
+}
 footer .wrap {
   display: flex;
   justify-content: space-between;
@@ -567,7 +657,11 @@ footer .foot-brand {
   gap: 10px;
 }
 footer .foot-brand img { height: 30px; }
-footer .foot-brand span { font-family: var(--font-display); font-weight: 600; }
+footer .foot-brand span {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--white);
+}
 footer .foot-links {
   display: flex;
   gap: 20px;
@@ -602,6 +696,10 @@ footer .foot-links a:hover { color: var(--sun); }
   box-shadow: 4px 5px 0 var(--ink);
   text-decoration: none;
   transition: transform 0.15s ease;
+}
+
+body.dark .float-wpp {
+  box-shadow: 4px 5px 0 rgba(255,255,255,0.18);
 }
 .float-wpp:hover { transform: scale(1.06); }
 .float-wpp svg { width: 27px; height: 27px; }
