@@ -38,7 +38,7 @@ window.SITE_DATA = {
       pais: "Argentina",
       codigo: "AEP",
       continente: "sudamerica",
-      ciudades: ["Buenos Aires", "Mendoza", "Córdoba", "Bariloche", "Calafate", "Esquel", "Trevelin", "Puerto Madryn", "San Salvador de Jujuy", "Tilcara"]
+      ciudades: ["Buenos Aires", "Mendoza", "Córdoba", "Bariloche", "Calafate", "Esquel", "Trevelin", "Puerto Madryn", "San Salvador de Jujuy", "Tilcara", "Mar del Plata"]
     },
     {
       pais: "Brasil",
@@ -86,13 +86,13 @@ window.SITE_DATA = {
       pais: "Costa Rica",
       codigo: "SJO",
       continente: "norteamerica",
-      ciudades: ["Costa Rica"]
+      ciudades: ["San José", "Costa Rica"]
     },
     {
       pais: "Panamá",
       codigo: "PTY",
       continente: "norteamerica",
-      ciudades: ["Panamá"]
+      ciudades: ["Ciudad de Panamá", "Panamá"]
     },
     {
       pais: "México",
@@ -110,7 +110,7 @@ window.SITE_DATA = {
       pais: "España",
       codigo: "BCN",
       continente: "europa",
-      ciudades: ["Barcelona"]
+      ciudades: ["Barcelona", "Alicante"]
     },
     {
       pais: "Francia",
@@ -140,7 +140,7 @@ window.SITE_DATA = {
       pais: "Bélgica",
       codigo: "BRU",
       continente: "europa",
-      ciudades: ["Bélgica"]
+      ciudades: ["Bruselas", "Bélgica"]
     }
   ],
 
