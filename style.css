@@ -204,6 +204,7 @@ h1, h2, h3, .display {
   padding: 26px 26px 22px;
   transform: rotate(2.5deg);
   box-shadow: 10px 12px 0 var(--sun);
+  margin-left: 18px;
 }
 .hero-ticket::before,
 .hero-ticket::after {
@@ -468,8 +469,8 @@ h1, h2, h3, .display {
 
 .destinos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 42px 32px;
 }
 
 .pass-card {
