@@ -36,7 +36,7 @@
   requestAnimationFrame(animateCounter);
 
   document.getElementById("counter-updated").textContent =
-    "Actualizado al " + (d.fechaActualizacion || "");
+    d.fechaActualizacion || "";
 
   /* ---------- Filtros de destinos ---------- */
   var CONTINENTES = {

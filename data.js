@@ -20,7 +20,7 @@ window.SITE_DATA = {
   // Actualizá este número a mano cada vez que suman un cliente.
   // --------------------------------------------------------
   pasajeros: 117,
-  fechaActualizacion: "15 de agosto de 2026", // texto libre, para mostrar "actualizado al..."
+  fechaActualizacion: "Desde agosto de 2025", // texto libre, para mostrar una historia de origen, no una fecha de actualización
 
   // --------------------------------------------------------
   // DESTINOS
