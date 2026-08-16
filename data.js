@@ -13,7 +13,7 @@
    6. Esperá 1-2 minutos y el cambio ya está online
    ============================================================ */
 
-const SITE_DATA = {
+window.SITE_DATA = {
 
   // --------------------------------------------------------
   // CONTADOR DE VIAJEROS
