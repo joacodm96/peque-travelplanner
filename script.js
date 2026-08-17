@@ -17,7 +17,10 @@
     document.body.classList.toggle("dark", isDark);
     if (themeToggle) {
       themeToggle.setAttribute("aria-pressed", String(isDark));
-      themeToggle.textContent = isDark ? "Modo claro" : "Modo oscuro";
+      var themeIcon = themeToggle.querySelector(".theme-icon");
+      var themeLabel = themeToggle.querySelector(".theme-label");
+      if (themeIcon) themeIcon.textContent = isDark ? "☀️" : "🌙";
+      if (themeLabel) themeLabel.textContent = isDark ? "Modo claro" : "Modo oscuro";
     }
     try {
       localStorage.setItem("peque-theme", theme);
