@@ -226,6 +226,7 @@ body.dark .hero-ticket::after {
   justify-content: space-between;
   padding-top: 12px;
   padding-bottom: 12px;
+  gap: 12px;
 }
 .topbar-brand {
   display: flex;
@@ -243,8 +244,34 @@ body.dark .hero-ticket::after {
 .topbar .btn-wpp .btn-label-full { display: inline; }
 .topbar .btn-wpp .btn-label-short { display: none; }
 @media (max-width: 480px) {
+  .topbar .wrap {
+    justify-content: flex-start;
+  }
+  .topbar-brand img {
+    height: 32px;
+  }
   .topbar .btn-wpp .btn-label-full { display: none; }
   .topbar .btn-wpp .btn-label-short { display: inline; }
+  .topbar-brand {
+    min-width: 0;
+    flex: 1;
+    gap: 8px;
+  }
+  .topbar-brand span {
+    font-size: 13px;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .topbar-actions {
+    flex-shrink: 0;
+    gap: 5px;
+  }
+  .theme-toggle {
+    padding: 7px 11px;
+    font-size: 10.5px;
+  }
 }
 
 /* ============================================================
