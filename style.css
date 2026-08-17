@@ -177,6 +177,14 @@ body.dark .topbar {
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.18s ease, background 0.18s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.theme-icon {
+  font-size: 16px;
+  line-height: 1;
 }
 
 .theme-toggle:hover {
@@ -251,7 +259,7 @@ body.dark .hero-ticket::after {
     height: 32px;
   }
   .topbar .btn-wpp .btn-label-full { display: none; }
-  .topbar .btn-wpp .btn-label-short { display: inline; }
+  .topbar .btn-wpp .btn-label-short { display: none; }
   .topbar-brand {
     min-width: 0;
     flex: 1;
@@ -269,8 +277,15 @@ body.dark .hero-ticket::after {
     gap: 5px;
   }
   .theme-toggle {
-    padding: 7px 11px;
+    padding: 6px 8px;
     font-size: 10.5px;
+  }
+  .theme-toggle .theme-label {
+    display: none;
+  }
+  .topbar .btn-wpp {
+    font-size: 12px;
+    padding: 6px 8px;
   }
 }
 
