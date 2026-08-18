@@ -2,21 +2,9 @@
 
 Sitio estático (HTML/CSS/JS puro, sin build) para linkear desde Instagram/TikTok.
 
-## Publicarlo en GitHub Pages (una sola vez)
+**En vivo:** https://pequetravelplanner.com
 
-1. Creá un repositorio nuevo en GitHub. Si lo llamás `pequetravel`, la URL final
-   va a quedar como `usuario.github.io/pequetravel`. Si querés que quede como
-   `usuario.github.io` (sin subcarpeta), el repo se tiene que llamar
-   exactamente `usuario.github.io`.
-2. Subí **todos** los archivos de esta carpeta al repositorio (`index.html`,
-   `style.css`, `script.js`, `data.js`, `README.md` y la carpeta `assets/`
-   completa) manteniendo la misma estructura.
-3. En el repositorio: **Settings → Pages**.
-4. En "Build and deployment" → Source: **Deploy from a branch**.
-5. Branch: `main`, carpeta `/ (root)` → **Save**.
-6. Esperá 1-2 minutos. GitHub te va a mostrar la URL pública arriba de esa
-   misma pantalla.
-7. Pegá esa URL en el link de la bio de Instagram/TikTok.
+Publicado con GitHub Pages, dominio propio (`pequetravelplanner.com`) comprado en Cloudflare.
 
 ## Actualizar el contador o los destinos
 
@@ -30,32 +18,39 @@ otro archivo:
 - Para agregar un país nuevo: copiá un bloque `{ pais: ..., codigo: ...,
   continente: ..., ciudades: [...] }` completo y pegalo dentro del array
   `destinos`.
+- Para cambiar el número de WhatsApp, el usuario de Instagram/TikTok o el
+  mensaje pre-cargado: son los últimos campos del archivo.
 
 Se puede editar directamente desde GitHub (web o app), sin instalar nada:
-abrí `data.js` → ícono de lápiz (Edit) → hacés el cambio → "Commit changes" →
-"Commit directly to the main branch". A los 1-2 minutos el cambio ya está
-online.
+abrí `data.js` → ícono de lápiz (Edit) → hacés el cambio → "Commit changes".
+A los 1-2 minutos el cambio ya está online (GitHub Pages redeploya solo).
 
 ## Estructura de archivos
 
 ```
-index.html      → estructura de la página
-style.css       → estilos (colores, tipografía, layout)
-script.js       → arma el contador, las tarjetas de destino y los links de WhatsApp
-data.js         → EL ARCHIVO QUE VAN A EDITAR (contador, destinos, WhatsApp)
+index.html         → estructura de la página
+style.css           → estilos (colores, tipografía, layout, modo oscuro)
+script.js           → contador animado, tarjetas de destino, filtros, links de WhatsApp
+data.js             → EL ARCHIVO QUE VAN A EDITAR (contador, destinos, WhatsApp)
+sitemap.xml         → para indexación en Google (Search Console)
+robots.txt          → apunta al sitemap
 assets/
-  logo.png          → logo de Global Dream Travel
-  cert-disney.png   → certificado College of Disney Knowledge
-  cert-universal.png→ certificado Universal Especialista
+  logo.png              → logo de Global Dream Travel
+  cert-disney.png       → certificado College of Disney Knowledge
+  cert-universal.png    → certificado Universal Especialista
+  share.png             → imagen que aparece al compartir el link (WhatsApp, IG, etc.)
 ```
 
-## Pendiente / a definir
+## Cosas a tener en cuenta
 
-- La tipografía del logo ("Lazidog") es una fuente de pago — el sitio usa
-  **Fredoka** (Google Fonts, gratis) como reemplazo con el mismo espíritu
-  redondeado. Si compran la licencia web de Lazidog, se puede reemplazar en
-  `style.css` (variable `--font-display`) en un minuto.
-- El badge de IATA es solo texto (no se subió el logo oficial de IATA). Si
-  quieren el isotipo real, se puede agregar como imagen en `assets/`.
-- Dominio: por ahora pensado para `usuario.github.io/repo`. Si más adelante
-  compran un dominio propio (ej. pequetravel.com), es un cambio de 5 minutos.
+- **Fuente del logo ("Lazidog")**: es de pago, no está en uso en el resto del
+  sitio. El resto del texto usa **Fredoka** (Google Fonts, gratis), con un
+  espíritu redondeado similar. Si en algún momento compran la licencia web
+  de Lazidog, se cambia en `style.css` (variable `--font-display`).
+- **Badge de IATA**: es solo texto, no se subió el isotipo oficial. Se puede
+  sumar como imagen en `assets/` si lo consiguen.
+- **Imagen de preview al compartir (`share.png`)**: si cambian el logo o los
+  colores de marca más adelante, esta imagen queda desactualizada y hay que
+  regenerarla aparte — no se arma sola a partir del resto del sitio.
+- **Modo oscuro**: el toggle vive en el header (`#theme-toggle`); los
+  estilos de modo oscuro están en `style.css` bajo los selectores `body.dark`.
