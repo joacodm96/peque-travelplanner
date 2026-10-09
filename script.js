@@ -51,6 +51,17 @@
     if (el) el.setAttribute("href", wppUrl);
   });
 
+  /* ---------- Botón flotante: aparece al pasar el hero ---------- */
+  var floatEl = document.getElementById("wpp-float");
+  var heroEl = document.getElementById("top");
+  if (floatEl && heroEl && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      floatEl.classList.toggle("is-hidden", entries[0].isIntersecting);
+    }, { threshold: 0.25 }).observe(heroEl);
+  } else if (floatEl) {
+    floatEl.classList.remove("is-hidden");
+  }
+
   /* ---------- Contador animado ---------- */
   var counterEl = document.getElementById("counter-num");
   var target = d.pasajeros || 0;
@@ -69,6 +80,9 @@
     }
   }
   requestAnimationFrame(animateCounter);
+
+  var ticketPax = document.getElementById("ticket-pasajeros");
+  if (ticketPax && target) ticketPax.textContent = target;
 
   document.getElementById("counter-updated").textContent =
     d.fechaActualizacion || "";
@@ -89,11 +103,14 @@
     var btn = document.createElement("button");
     btn.className = "filter-btn" + (key === "todos" ? " active" : "");
     btn.textContent = CONTINENTES[key];
+    btn.type = "button";
     btn.setAttribute("data-filter", key);
+    btn.setAttribute("aria-pressed", String(key === "todos"));
     btn.addEventListener("click", function () {
       currentFilter = key;
       document.querySelectorAll(".filter-btn").forEach(function (b) {
         b.classList.toggle("active", b === btn);
+        b.setAttribute("aria-pressed", String(b === btn));
       });
       renderDestinos();
     });

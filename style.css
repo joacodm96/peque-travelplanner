@@ -375,28 +375,21 @@ body.dark .hero {
   gap: 12px;
 }
 .hero .btn-hero-form {
-  font-size: 15px;
-  padding: 12px 22px;
-  background: var(--pink);
+  font-size: 14.5px;
+  padding: 10px 20px;
+  background: transparent;
   color: var(--ink);
   border-color: var(--ink);
 }
-.hero .btn-hero-form-alt { background: var(--sun); }
-.hero .btn-hero-form:hover { background: var(--ink); color: var(--white); }
+.hero .btn-hero-form:hover { background: var(--pink-soft); border-color: var(--pink); }
+.hero .btn-hero-form-alt:hover { background: var(--sun-soft); border-color: var(--sun); }
 body.dark .hero .btn-hero-form {
-  background: var(--pink);
-  color: #111111;
-  border-color: var(--pink);
-}
-body.dark .hero .btn-hero-form-alt {
-  background: var(--sun);
-  border-color: var(--sun);
-}
-body.dark .hero .btn-hero-form:hover {
-  background: var(--surface-dark);
+  background: transparent;
   color: var(--text);
-  border-color: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.35);
 }
+body.dark .hero .btn-hero-form:hover { border-color: var(--pink); background: var(--pink-soft); }
+body.dark .hero .btn-hero-form-alt:hover { border-color: var(--sun); background: var(--sun-soft); }
 
 /* ---- Boarding pass hero card (signature element preview) ---- */
 .hero-ticket {
@@ -482,6 +475,16 @@ body.dark .hero-ticket {
   border-radius: 3px;
 }
 
+.ticket-foot {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pink);
+  text-align: right;
+}
+
 /* ---- Counter strip ---- */
 .counter-strip {
   background: var(--ink);
@@ -555,7 +558,20 @@ body.dark .counter-updated {
   gap: 18px;
 }
 @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } }
+/* Celular: Disney con su texto; el resto como filas compactas (ícono + título) */
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; gap: 10px; }
+  .service-card:not(.highlight) {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    border-radius: 16px;
+  }
+  .service-card:not(.highlight) .icon { width: 40px; height: 40px; font-size: 19px; margin: 0; flex-shrink: 0; }
+  .service-card:not(.highlight) h3 { font-size: 16.5px; margin: 0; }
+  .service-card:not(.highlight) p { display: none; }
+}
 
 .service-card {
   background: var(--card-bg);
@@ -859,7 +875,13 @@ footer .foot-links {
   font-family: var(--font-mono);
   font-size: 13px;
 }
-footer .foot-links a { text-decoration: none; }
+footer .foot-links a {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+footer .foot-links svg { width: 16px; height: 16px; flex-shrink: 0; }
 footer .foot-links a:hover { color: var(--sun); }
 .foot-fine {
   font-family: var(--font-mono);
@@ -893,6 +915,17 @@ body.dark .float-wpp {
   box-shadow: 4px 5px 0 rgba(255,255,255,0.18);
 }
 .float-wpp:hover { transform: scale(1.06); }
+.float-wpp.is-hidden {
+  opacity: 0;
+  transform: translateY(16px) scale(0.9);
+  pointer-events: none;
+}
+.float-wpp { transition: transform 0.2s ease, opacity 0.2s ease; }
+@media (max-width: 600px) {
+  .float-wpp { width: 52px; height: 52px; bottom: 16px; right: 16px; }
+  .float-wpp svg { width: 24px; height: 24px; }
+  footer { padding-bottom: 84px; }
+}
 .float-wpp svg { width: 27px; height: 27px; }
 
 /* ---- Fade-in on scroll ---- */
