@@ -19,7 +19,7 @@ window.SITE_DATA = {
   // CONTADOR DE VIAJEROS
   // Actualizá este número a mano cada vez que suman un cliente.
   // --------------------------------------------------------
-  pasajeros: 117,
+  pasajeros: 136,
   fechaActualizacion: "Desde agosto de 2025", // texto libre, para mostrar una historia de origen, no una fecha de actualización
 
   // --------------------------------------------------------
@@ -38,7 +38,7 @@ window.SITE_DATA = {
       pais: "Argentina",
       codigo: "AEP",
       continente: "sudamerica",
-      ciudades: ["Buenos Aires", "Mendoza", "Córdoba", "Bariloche", "Calafate", "Esquel", "Trevelin", "Puerto Madryn", "San Salvador de Jujuy", "Tilcara", "Mar del Plata"]
+      ciudades: ["Buenos Aires", "Mendoza", "Córdoba", "Bariloche", "Calafate", "Esquel", "Trevelin", "Puerto Madryn", "San Salvador de Jujuy", "Tilcara", "Iguazu", "Mar del Plata"]
     },
     {
       pais: "Brasil",

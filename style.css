@@ -120,15 +120,13 @@ body.dark .btn-wpp {
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
 }
 body.dark #wpp-top,
-body.dark #wpp-hero,
-body.dark #wpp-cta {
+body.dark #wpp-hero {
   background: var(--surface-dark);
   color: var(--text);
   border-color: rgba(255,255,255,0.12);
 }
 body.dark #wpp-top:hover,
-body.dark #wpp-hero:hover,
-body.dark #wpp-cta:hover {
+body.dark #wpp-hero:hover {
   background: var(--pink);
   color: #111111;
 }
@@ -361,6 +359,43 @@ body.dark .hero {
   padding-bottom: 2px;
 }
 .hero-ig:hover { border-color: var(--pink); color: var(--pink); }
+
+.hero-forms { margin-top: 26px; }
+.hero-forms-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.hero-forms-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.hero .btn-hero-form {
+  font-size: 15px;
+  padding: 12px 22px;
+  background: var(--pink);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.hero .btn-hero-form-alt { background: var(--sun); }
+.hero .btn-hero-form:hover { background: var(--ink); color: var(--white); }
+body.dark .hero .btn-hero-form {
+  background: var(--pink);
+  color: #111111;
+  border-color: var(--pink);
+}
+body.dark .hero .btn-hero-form-alt {
+  background: var(--sun);
+  border-color: var(--sun);
+}
+body.dark .hero .btn-hero-form:hover {
+  background: var(--surface-dark);
+  color: var(--text);
+  border-color: rgba(255,255,255,0.12);
+}
 
 /* ---- Boarding pass hero card (signature element preview) ---- */
 .hero-ticket {

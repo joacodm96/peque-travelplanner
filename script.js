@@ -46,7 +46,7 @@
 
   /* ---------- Links de WhatsApp ---------- */
   var wppUrl = "https://wa.me/" + d.whatsapp + "?text=" + encodeURIComponent(d.mensajeWhatsapp);
-  ["wpp-top", "wpp-hero", "wpp-cta", "wpp-foot", "wpp-float"].forEach(function (id) {
+  ["wpp-top", "wpp-hero", "wpp-foot", "wpp-float"].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) el.setAttribute("href", wppUrl);
   });
