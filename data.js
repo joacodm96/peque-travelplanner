@@ -32,13 +32,18 @@ window.SITE_DATA = {
   //
   // continente: "sudamerica" | "caribe" | "norteamerica" | "europa"
   //   (se usa para los filtros de arriba de la sección Destinos)
+  //
+  // destacado: 1, 2, 3... → la tarjeta se ve de entrada, sin tocar
+  //   "Ver todos", en ese orden. El resto aparece al desplegar.
+  //   Conviene dejar 6 destacados (2 filas de 3 en compu).
   // --------------------------------------------------------
   destinos: [
     {
       pais: "Argentina",
       codigo: "AEP",
       continente: "sudamerica",
-      ciudades: ["Buenos Aires", "Mendoza", "Córdoba", "Bariloche", "Calafate", "Esquel", "Trevelin", "Puerto Madryn", "San Salvador de Jujuy", "Tilcara", "Iguazu", "Mar del Plata"]
+      destacado: 6,
+      ciudades: ["Buenos Aires", "Mendoza", "Córdoba", "Bariloche", "Calafate", "Esquel", "Trevelin", "Puerto Madryn", "San Salvador de Jujuy", "Tilcara", "Iguazú", "Mar del Plata"]
     },
     {
       pais: "Brasil",
@@ -68,6 +73,7 @@ window.SITE_DATA = {
       pais: "República Dominicana",
       codigo: "PUJ",
       continente: "caribe",
+      destacado: 2,
       ciudades: ["Punta Cana", "Samaná", "Santo Domingo", "Bayahibe"]
     },
     {
@@ -98,12 +104,14 @@ window.SITE_DATA = {
       pais: "México",
       codigo: "CUN",
       continente: "norteamerica",
+      destacado: 4,
       ciudades: ["Cancún", "Playa del Carmen"]
     },
     {
       pais: "Estados Unidos",
       codigo: "MCO",
       continente: "norteamerica",
+      destacado: 1,
       ciudades: ["Orlando", "Miami", "Naples", "New York"]
     },
     {
@@ -122,12 +130,14 @@ window.SITE_DATA = {
       pais: "Italia",
       codigo: "FCO",
       continente: "europa",
+      destacado: 3,
       ciudades: ["Roma", "Florencia", "Sorrento", "Nápoles", "Amalfi", "Salerno"]
     },
     {
       pais: "Grecia",
       codigo: "ATH",
       continente: "europa",
+      destacado: 5,
       ciudades: ["Atenas", "Santorini"]
     },
     {

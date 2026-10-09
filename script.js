@@ -102,12 +102,32 @@
 
   /* ---------- Render de tarjetas de destino ---------- */
   var gridEl = document.getElementById("destinos-grid");
+  var toggleEl = document.getElementById("destinos-toggle");
+  var expanded = false;
+
+  // Con "Todos" se muestran primero los destacados, y el resto solo al
+  // tocar "Ver todos". Así las primeras tarjetas no cambian de lugar al desplegar.
+  var destacados = d.destinos.filter(function (i) { return i.destacado; })
+    .sort(function (a, b) { return Number(a.destacado) - Number(b.destacado); });
+  var resto = d.destinos.filter(function (i) { return !i.destacado; });
+  if (!destacados.length) {
+    destacados = d.destinos.slice(0, 6);
+    resto = d.destinos.slice(6);
+  }
 
   function renderDestinos() {
     gridEl.innerHTML = "";
-    var list = d.destinos.filter(function (item) {
-      return currentFilter === "todos" || item.continente === currentFilter;
-    });
+    var list;
+    if (currentFilter === "todos") {
+      list = expanded ? destacados.concat(resto) : destacados;
+    } else {
+      list = d.destinos.filter(function (item) { return item.continente === currentFilter; });
+    }
+
+    var showToggle = currentFilter === "todos" && resto.length > 0;
+    toggleEl.hidden = !showToggle;
+    toggleEl.setAttribute("aria-expanded", String(expanded));
+    toggleEl.textContent = expanded ? "Ver menos" : "Ver los " + d.destinos.length + " destinos ✈";
 
     list.forEach(function (item) {
       var card = document.createElement("div");
@@ -126,6 +146,14 @@
 
     observeReveals();
   }
+
+  toggleEl.addEventListener("click", function () {
+    expanded = !expanded;
+    renderDestinos();
+    // Al colapsar, volver al inicio de la sección para no quedar perdidos más abajo
+    if (!expanded) document.getElementById("destinos").scrollIntoView({ behavior: "smooth" });
+  });
+
   renderDestinos();
 
   /* ---------- Código random en el ticket del hero ---------- */

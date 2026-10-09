@@ -763,6 +763,13 @@ body.dark .filter-btn.active {
   font-size: 16.5px;
   margin-top: 8px;
 }
+.destinos-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.destinos-toggle[hidden] { display: none; }
+
 .pass-dashed { border-top: 1.5px dashed var(--cloud); margin: 10px 0 8px; }
 .pass-cities {
   font-size: 12.5px;
