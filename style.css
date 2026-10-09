@@ -327,6 +327,7 @@ body.dark .hero {
 
 .hero-logo {
   width: 118px;
+  height: auto;
   margin-bottom: 22px;
 }
 
@@ -778,12 +779,6 @@ body.dark .filter-btn.active {
   text-align: center;
 }
 
-.cta-final {
-  background: var(--pink);
-  padding: 74px 0;
-  text-align: center;
-}
-
 body.dark .cta-final {
   background: linear-gradient(180deg, #d75cb8 0%, #ba5daa 100%);
 }
@@ -845,7 +840,7 @@ footer .foot-brand {
   align-items: center;
   gap: 10px;
 }
-footer .foot-brand img { height: 30px; }
+footer .foot-brand img { height: 30px; width: auto; }
 footer .foot-brand span {
   font-family: var(--font-display);
   font-weight: 600;
