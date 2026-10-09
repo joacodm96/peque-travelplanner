@@ -628,6 +628,59 @@ body.dark .service-card.highlight p {
 }
 
 /* ============================================================
+   SOBRE MÍ
+   ============================================================ */
+.about {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 44px;
+  align-items: center;
+  margin-bottom: 64px;
+}
+.about-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 2.5px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 8px 10px 0 var(--pink);
+  transform: rotate(-2deg);
+}
+.about-copy h2 {
+  font-size: clamp(28px, 3.6vw, 40px);
+  margin: 10px 0 16px;
+}
+.about-nick {
+  display: block;
+  color: var(--pink);
+  font-size: 0.62em;
+  margin-top: 6px;
+}
+.about-copy p {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 58ch;
+  margin: 0 0 12px;
+}
+.about-copy strong { color: var(--text); }
+@media (max-width: 720px) {
+  .about { grid-template-columns: 1fr; gap: 28px; margin-bottom: 48px; }
+  .about-photo { max-width: 260px; margin: 0 auto; }
+}
+body.dark .about-photo { border-color: rgba(255,255,255,0.2); }
+
+.certs-head { margin-bottom: 24px; }
+.certs-head h3 { font-size: 22px; }
+.certs-head p {
+  font-size: 15px;
+  color: var(--muted);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* ============================================================
    CERTIFICACIONES
    ============================================================ */
 .certs-grid {
@@ -672,6 +725,7 @@ body.dark .service-card.highlight p {
   border: 2px solid var(--ink);
   border-radius: var(--radius);
   background: var(--sun);
+  color: #111111; /* fondo amarillo en ambos temas: texto siempre oscuro */
   padding: 22px;
   display: flex;
   flex-direction: column;
